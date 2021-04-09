@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/mood-update}" th:object="${mood}" method="post">
+    <label for="name">Id</label>
+    <input readonly type="text" th:field="*{id}" id="id" placeholder="Id">
+    <label for="name">Название</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <input type="submit" value="Update Mood">
+</form>
+</body>
+</html>

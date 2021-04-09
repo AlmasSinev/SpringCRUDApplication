@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/mood-get-by-name}" th:object="${mood}" method="post">
+    <label for="name">Название</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <input type="submit" value="Find Mood">
+</form>
+
+<tbody>
+<tr th:object="${mood}">
+    <td th:text="*{id}"></td>
+    <td th:text="*{name}"></td>
+</tr>
+</tbody>
+</body>
+</html>

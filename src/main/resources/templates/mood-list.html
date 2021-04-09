@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Moods</title>
+</head>
+<body>
+    <div th:switch="${moods}">
+        <h2 th:case="null">No moods found!</h2>
+        <div th:case="*">
+            <h2>Настроения</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Номер</th>
+                    <th>Название</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="mood : ${moods}">
+                    <td th:text="${mood.id}"></td>
+                    <td th:text="${mood.name}"></td>
+                    <td><a th:href="@{mood-update/{id}(id=${mood.id})}">Изменить</a></td>
+                    <td><a th:href="@{mood-delete/{id}(id=${mood.id})}">Удалить</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><a href="/mood-create">Create Mood</a></p>
+    </div>
+
+</body>
+</html>
